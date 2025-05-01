@@ -4,15 +4,16 @@ import React from "react";
 
 import { RenderBuilderContent } from "../components/builder";
 interface PageProps {
-  params: {
-    page: string[];
-  };
+  params: Promise<{
+    page?: string[]; // Optional to handle undefined cases
+  }>;
 }
 
 export default async function Page({ params }: PageProps) {
   builder.init("954fa25aa9f845c0ad6a82b2b52c6abd");
-  // eslint-disable-next-line @typescript-eslint/await-thenable
-  const { page } = await params;
+
+  const resolvedParams = await params; // Await the params
+  const { page } = resolvedParams;
   const content = await builder
     .get("page", {
       cache: true,
