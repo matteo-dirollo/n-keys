@@ -77,7 +77,6 @@ export default buildConfig({
   },
   plugins: [
     ...plugins,
-    // Add the Vercel Blob Storage plugin to handle file uploads
     vercelBlobStorage({
       collections: {
         media: {

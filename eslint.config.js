@@ -31,11 +31,18 @@ export default [
     ignores: defaultESLintIgnores,
   },
   {
+    plugins: ["@next/eslint-plugin-next"],
+
     rules: {
       "react/no-unescaped-entities": "off", // Disable this rule
       "@next/next/no-page-custom-font": "off", // Disable this rule
       "no-restricted-exports": "off", // Example of an existing rule
     },
+    extends: [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "next/core-web-vitals",
+    ],
   },
   {
     languageOptions: {
