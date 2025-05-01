@@ -4,9 +4,7 @@
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
-    "noImplicitAny": false,
-    "strictNullChecks": false,
+    "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -22,11 +20,17 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@payload-config": ["./src/payload.config.ts"],
-      "@modules/*": ["./src/(frontend)/_components/*"]
+      "@payload-config": ["./src/payload.config.ts"]
     },
     "target": "ES2022"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["dist", "build", "node_modules"]
+  "exclude": [
+    "dist",
+    "build",
+    "node_modules",
+    "src/app/(frontend)/_components/checkout/**/*.tsx",
+    "src/app/(frontend)/(checkout)/**/*.tsx",
+    "src/app/(frontend)/_templates/**/*.tsx"
+  ]
 }

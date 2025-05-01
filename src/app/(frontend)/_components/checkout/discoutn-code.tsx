@@ -1,5 +1,6 @@
 "use client";
 
+<<<<<<< HEAD
 import type { HttpTypes } from "@medusajs/types";
 
 import { applyPromotions, submitPromotionForm } from "@lib/data/cart";
@@ -9,13 +10,25 @@ import React, { useActionState } from "react";
 
 import ErrorMessage from "../error-message";
 import { SubmitButton } from "../submit-button";
+=======
+import { Badge, Heading, Input, Label, Text } from "@medusajs/ui";
+import React, { useActionState } from "react";
+import { SubmitButton } from "./submit-button";
+import ErrorMessage from "./error-message";
+>>>>>>> upstream/main
 import Trash from "../icons/trash";
 import { convertToLocale } from "../../_util/money";
 
 type DiscountCodeProps = {
+<<<<<<< HEAD
   cart: {
     promotions: HttpTypes.StorePromotion[];
   } & HttpTypes.StoreCart;
+=======
+    cart: {
+        promotions: any[];
+    } & any;
+>>>>>>> upstream/main
 };
 
 const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
@@ -27,6 +40,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
       (promotion) => promotion.code !== code
     );
 
+<<<<<<< HEAD
     await applyPromotions(
       validPromotions.filter((p) => p.code === undefined).map((p) => p.code!)
     );
@@ -46,13 +60,40 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
     codes.push(code.toString());
 
     await applyPromotions(codes);
+=======
+        // await applyPromotions(
+        //     validPromotions
+        //         .filter((p) => p.code === undefined)
+        //         .map((p) => p.code!)
+        // );
+    };
+
+    const addPromotionCode = async (formData: FormData) => {
+        const code = formData.get("code");
+        if (!code) {
+            return;
+        }
+        const input = document.getElementById(
+            "promotion-input"
+        ) as HTMLInputElement;
+        const codes = promotions
+            .filter((p: any) => p.code === undefined)
+            .map((p: any) => p.code!);
+        codes.push(code.toString());
+
+        // await applyPromotions(codes);
+>>>>>>> upstream/main
 
     if (input) {
       input.value = "";
     }
   };
 
+<<<<<<< HEAD
   const [message] = useActionState(submitPromotionForm, null);
+=======
+    // const [message] = useActionState(submitPromotionForm as any, null);
+>>>>>>> upstream/main
 
   return (
     <div className="w-full bg-white flex flex-col">
@@ -92,6 +133,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                 </SubmitButton>
               </div>
 
+<<<<<<< HEAD
               <ErrorMessage
                 data-testid="discount-error-message"
                 error={message}
@@ -99,6 +141,15 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
             </>
           )}
         </form>
+=======
+                            {/* <ErrorMessage
+                                data-testid="discount-error-message"
+                                error={message}
+                            /> */}
+                        </>
+                    )}
+                </form>
+>>>>>>> upstream/main
 
         {promotions.length > 0 && (
           <div className="w-full flex items-center">
@@ -107,6 +158,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                 Promotion(s) applied:
               </Heading>
 
+<<<<<<< HEAD
               {promotions.map((promotion) => {
                 return (
                   <div
@@ -140,6 +192,57 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                           )}
                         )
                         {/* {promotion.is_automatic && (
+=======
+                            {promotions.map((promotion: any) => {
+                                return (
+                                    <div
+                                        className="flex items-center justify-between w-full max-w-full mb-2"
+                                        data-testid="discount-row"
+                                        key={promotion.id}
+                                    >
+                                        <Text className="flex gap-x-1 items-baseline txt-small-plus w-4/5 pr-1">
+                                            <span
+                                                className="truncate"
+                                                data-testid="discount-code"
+                                            >
+                                                <Badge
+                                                    color={
+                                                        promotion.is_automatic
+                                                            ? "green"
+                                                            : "grey"
+                                                    }
+                                                    size="small"
+                                                >
+                                                    {promotion.code}
+                                                </Badge>{" "}
+                                                (
+                                                {promotion.application_method
+                                                    ?.value !== undefined &&
+                                                    promotion.application_method
+                                                        .currency_code !==
+                                                        undefined && (
+                                                        <>
+                                                            {promotion
+                                                                .application_method
+                                                                .type ===
+                                                            "percentage"
+                                                                ? `${promotion.application_method.value}%`
+                                                                : convertToLocale(
+                                                                      {
+                                                                          amount: +promotion
+                                                                              .application_method
+                                                                              .value,
+                                                                          currency_code:
+                                                                              promotion
+                                                                                  .application_method
+                                                                                  .currency_code,
+                                                                      }
+                                                                  )}
+                                                        </>
+                                                    )}
+                                                )
+                                                {/* {promotion.is_automatic && (
+>>>>>>> upstream/main
                           <Tooltip content="This promotion is automatically applied">
                             <InformationCircleSolid className="inline text-zinc-400" />
                           </Tooltip>
