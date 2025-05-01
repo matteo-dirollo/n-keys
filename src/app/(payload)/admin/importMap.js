@@ -35,6 +35,7 @@ import { WhereField as WhereField_2cddc2e1d3f965d7263141af56b26a90 } from '@shop
 import { Preview as Preview_2cddc2e1d3f965d7263141af56b26a90 } from '@shopnex/import-export-plugin/rsc'
 import { default as default_37ff3de76d1a962ab5815bc7ccd78444 } from '@/admin/components/Nav/Nav.tsx'
 import { ImportExportProvider as ImportExportProvider_2cddc2e1d3f965d7263141af56b26a90 } from '@shopnex/import-export-plugin/rsc'
+import { VercelBlobClientUploadHandler as VercelBlobClientUploadHandler_16c82c5e25f430251a3e3ba57219ff4e } from '@payloadcms/storage-vercel-blob/client'
 import { default as default_1ab113f7c5575fdebcd59a27756787ec } from '@/admin/components/Dashboard/Dashboard'
 
 export const importMap = {
@@ -75,5 +76,6 @@ export const importMap = {
   "@shopnex/import-export-plugin/rsc#Preview": Preview_2cddc2e1d3f965d7263141af56b26a90,
   "@/admin/components/Nav/Nav.tsx#default": default_37ff3de76d1a962ab5815bc7ccd78444,
   "@shopnex/import-export-plugin/rsc#ImportExportProvider": ImportExportProvider_2cddc2e1d3f965d7263141af56b26a90,
+  "@payloadcms/storage-vercel-blob/client#VercelBlobClientUploadHandler": VercelBlobClientUploadHandler_16c82c5e25f430251a3e3ba57219ff4e,
   "@/admin/components/Dashboard/Dashboard#default": default_1ab113f7c5575fdebcd59a27756787ec
 }
