@@ -24,7 +24,7 @@ import { plugins } from "./plugins";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
-const catalog = [Collections, Products];
+const catalog = [Collections, Products, Media];
 
 export default buildConfig({
   admin: {
