@@ -4,31 +4,31 @@ import { admins, anyone } from "@/access/roles";
 import currency from "currency-codes";
 
 const StoreSettings: GlobalConfig = {
-    slug: "store-settings",
-    access: {
-        read: anyone,
-        update: admins,
+  slug: "store-settings",
+  access: {
+    read: anyone,
+    update: admins,
+  },
+  admin: {
+    group: "Settings",
+  },
+  fields: [
+    {
+      name: "name",
+      type: "text",
+      defaultValue: "N-KEYS",
     },
-    admin: {
-        group: "Settings",
+    {
+      name: "currency",
+      type: "select",
+      defaultValue: "USD",
+      options: currency.codes().map((code) => ({
+        label: `${currency.code(code)?.currency} (${currency.code(code)?.code})`,
+        value: code,
+      })),
     },
-    fields: [
-        {
-            name: "name",
-            type: "text",
-            defaultValue: "ShopLoad",
-        },
-        {
-            name: "currency",
-            type: "select",
-            defaultValue: "USD",
-            options: currency.codes().map((code) => ({
-                label: `${currency.code(code)?.currency} (${currency.code(code)?.code})`,
-                value: code,
-            })),
-        },
-    ],
-    label: "Settings",
+  ],
+  label: "Settings",
 };
 
 export default StoreSettings;
