@@ -87,7 +87,9 @@ export default buildConfig({
       token: process.env.BLOB_READ_WRITE_TOKEN, // Vercel Blob token
     }),
   ],
-  secret: process.env.PAYLOAD_SECRET || "",
+  secret:
+    process.env.PAYLOAD_SECRET ||
+    "9beff12a6b089174fb69dc5e94a3bf0a910026871a1b0b717079d43ed4afa267",
   sharp,
   telemetry: false,
   typescript: {
