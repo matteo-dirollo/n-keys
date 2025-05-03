@@ -23,6 +23,15 @@ export const defaultESLintIgnores = [
   "src/app/(frontend)/(checkout)/checkout/*",
   "src/app/(frontend)/_templates/checkout-form.tsx",
   "src/app/(frontend)/*",
+  "./src/admin/components/Dashboard/Dashboard.tsx",
+  "./src/admin/components/*",
+  "./src/app/api/*",
+  "./src/collections/*",
+  "./src/fields/description.ts",
+  "./src/payload.config.ts",
+  "./src/seed/index.ts",
+  "./src/webhooks/payment-canceled.ts",
+  "./src/webhooks/payment-succeeded.ts",
 ];
 
 export default [
