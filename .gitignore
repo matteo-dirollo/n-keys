@@ -45,3 +45,6 @@ payload-generated-schema.ts
 /media
 
 shoplyjs-new.db
+
+cj-get-refreshToken.ps1
+cj-refreshToken.json
