@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/await-thenable */
 import type { Metadata } from "next";
 
 import { retrieveCart } from "@/app/api/services/cart";
