@@ -57,8 +57,8 @@ importers:
         specifier: ^1.2.3
         version: 1.2.4(@types/react-dom@19.0.3(@types/react@19.0.7))(@types/react@19.0.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@shopnex/cj-plugin':
-        specifier: 1.0.4
-        version: 1.0.4(bufferutil@4.0.9)(utf-8-validate@6.0.5)
+        specifier: ^1.0.5
+        version: 1.0.5(bufferutil@4.0.9)(utf-8-validate@6.0.5)
       '@shopnex/import-export-plugin':
         specifier: ^3.31.3
         version: 3.31.3(@types/react@19.0.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -3183,8 +3183,8 @@ packages:
       '@opentelemetry/sdk-trace-base': ^1.30.1
       '@opentelemetry/semantic-conventions': ^1.28.0
 
-  '@shopnex/cj-plugin@1.0.4':
-    resolution: {integrity: sha512-Gl/RtYXzUhLWRVA5manoG0osYPFojQ0Ge8cbLRsz8hhDgimC8kslCXn6qYgiuNLzQwtM4C52TTvENAwd0YoJwg==}
+  '@shopnex/cj-plugin@1.0.5':
+    resolution: {integrity: sha512-ulDXkEqs2UKzosO+NMm44yc/GqX7z0t3hMTuufWVf7REHBpv7T395LfgwVSOVKoi2mKVixbe7BPFJs2nMX0Sgg==}
 
   '@shopnex/import-export-plugin@3.31.3':
     resolution: {integrity: sha512-dn3s/b94UE5WTbcF9IMqztuFWFzAjW5QFKS8ASa2pVd75VCfDwvY6SkOPJOPd19wOynOwbpboP5c2eMhD+Gjaw==}
@@ -5572,8 +5572,8 @@ packages:
   lexical@0.28.0:
     resolution: {integrity: sha512-dLE3O1PZg0TlZxRQo9YDpjCjDUj8zluGyBO9MHdjo21qZmMUNrxQPeCRt8fn2s5l4HKYFQ1YNgl7k1pOJB/vZQ==}
 
-  lib0@0.2.102:
-    resolution: {integrity: sha512-g70kydI0I1sZU0ChO8mBbhw0oUW/8U0GHzygpvEIx8k+jgOpqnTSb/E+70toYVqHxBhrERD21TwD5QcZJQ40ZQ==}
+  lib0@0.2.105:
+    resolution: {integrity: sha512-5vtbuBi2P43ZYOfVMV+TZYkWEa0J9kijXirzEgrPA+nJDQCtMx805/rqW4G1nXbM9IRIhwW+OyNNgcQdbhKfSw==}
     engines: {node: '>=16'}
     hasBin: true
 
@@ -11163,7 +11163,7 @@ snapshots:
       '@opentelemetry/semantic-conventions': 1.32.0
       '@sentry/core': 9.14.0
 
-  '@shopnex/cj-plugin@1.0.4(bufferutil@4.0.9)(utf-8-validate@6.0.5)':
+  '@shopnex/cj-plugin@1.0.5(bufferutil@4.0.9)(utf-8-validate@6.0.5)':
     dependencies:
       '@lexical/headless': 0.28.0
       '@lexical/html': 0.28.0
@@ -13976,7 +13976,7 @@ snapshots:
 
   lexical@0.28.0: {}
 
-  lib0@0.2.102:
+  lib0@0.2.105:
     dependencies:
       isomorphic.js: 0.2.5
 
@@ -16161,7 +16161,7 @@ snapshots:
 
   yjs@13.6.24:
     dependencies:
-      lib0: 0.2.102
+      lib0: 0.2.105
 
   yocto-queue@0.1.0: {}
 
