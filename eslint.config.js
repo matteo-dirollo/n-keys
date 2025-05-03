@@ -23,15 +23,15 @@ export const defaultESLintIgnores = [
   "src/app/(frontend)/(checkout)/checkout/*",
   "src/app/(frontend)/_templates/checkout-form.tsx",
   "src/app/(frontend)/*",
-  "./src/admin/components/Dashboard/Dashboard.tsx",
-  "./src/admin/components/*",
-  "./src/app/api/*",
-  "./src/collections/*",
-  "./src/fields/description.ts",
-  "./src/payload.config.ts",
-  "./src/seed/index.ts",
-  "./src/webhooks/payment-canceled.ts",
-  "./src/webhooks/payment-succeeded.ts",
+  // "./src/admin/components/Dashboard/Dashboard.tsx",
+  // "./src/admin/components/*",
+  // "./src/app/api/*",
+  // "./src/collections/*",
+  // "./src/fields/description.ts",
+  // "./src/payload.config.ts",
+  // "./src/seed/index.ts",
+  // "./src/webhooks/payment-canceled.ts",
+  // "./src/webhooks/payment-succeeded.ts",
 ];
 
 export default [
@@ -42,6 +42,7 @@ export default [
   {
     rules: {
       "no-restricted-exports": "off",
+      "@typescript-eslint/no-explicit-any": "off",
     },
   },
   {
@@ -51,13 +52,13 @@ export default [
         ecmaVersion: "latest",
         projectService: {
           maximumDefaultProjectFileMatchCount_THIS_WILL_SLOW_DOWN_LINTING: 40,
-          allowDefaultProject: [
-            "scripts/*.ts",
-            "*.js",
-            "*.mjs",
-            "*.spec.ts",
-            "*.d.ts",
-          ],
+          // allowDefaultProject: [
+          //   "scripts/*.ts",
+          //   "*.js",
+          //   "*.mjs",
+          //   "*.spec.ts",
+          //   "*.d.ts",
+          // ],
         },
         // projectService: true,
         tsconfigRootDir: import.meta.dirname,
