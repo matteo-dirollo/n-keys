@@ -24,8 +24,6 @@ export const plugins: Plugin[] = [
     cjApiKey: process.env.CJ_PASSWORD || "",
     cjEmailAddress: process.env.CJ_EMAIL_ADDRESS || "",
     cjRefreshToken: process.env.CJ_REFRESH_TOKEN,
-    isGlobal: true,
-    // collectionOverrides: {},
   }),
   storePlugin({}),
   importExportPlugin({
