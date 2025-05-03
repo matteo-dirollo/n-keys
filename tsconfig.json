@@ -34,9 +34,9 @@
   "exclude": [
     "dist",
     "build",
-    "node_modules",
-    "src/app/(frontend)/_components/checkout/**/*.tsx",
-    "src/app/(frontend)/(checkout)/**/*.tsx",
-    "src/app/(frontend)/_templates/**/*.tsx"
+    "node_modules"
+    // "src/app/(frontend)/_components/checkout/**/*.tsx",
+    // "src/app/(frontend)/(checkout)/**/*.tsx",
+    // "src/app/(frontend)/_templates/**/*.tsx"
   ]
 }

@@ -19,19 +19,6 @@ export const defaultESLintIgnores = [
   "**/node_modules/",
   "**/temp/",
   "plugins/*",
-  "src/app/(frontend)/_components/checkout/*",
-  "src/app/(frontend)/(checkout)/checkout/*",
-  "src/app/(frontend)/_templates/checkout-form.tsx",
-  "src/app/(frontend)/*",
-  // "./src/admin/components/Dashboard/Dashboard.tsx",
-  // "./src/admin/components/*",
-  // "./src/app/api/*",
-  // "./src/collections/*",
-  // "./src/fields/description.ts",
-  // "./src/payload.config.ts",
-  // "./src/seed/index.ts",
-  // "./src/webhooks/payment-canceled.ts",
-  // "./src/webhooks/payment-succeeded.ts",
 ];
 
 export default [
@@ -52,13 +39,13 @@ export default [
         ecmaVersion: "latest",
         projectService: {
           maximumDefaultProjectFileMatchCount_THIS_WILL_SLOW_DOWN_LINTING: 40,
-          // allowDefaultProject: [
-          //   "scripts/*.ts",
-          //   "*.js",
-          //   "*.mjs",
-          //   "*.spec.ts",
-          //   "*.d.ts",
-          // ],
+          allowDefaultProject: [
+            "scripts/*.ts",
+            "*.js",
+            "*.mjs",
+            "*.spec.ts",
+            "*.d.ts",
+          ],
         },
         // projectService: true,
         tsconfigRootDir: import.meta.dirname,
