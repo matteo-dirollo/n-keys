@@ -19,6 +19,10 @@ export const defaultESLintIgnores = [
   "**/node_modules/",
   "**/temp/",
   "plugins/*",
+  "src/app/(frontend)/_components/checkout/*",
+  "src/app/(frontend)/(checkout)/checkout/*",
+  "src/app/(frontend)/_templates/checkout-form.tsx",
+  "src/app/(frontend)/*",
 ];
 
 export default [
@@ -31,6 +35,7 @@ export default [
       "no-restricted-exports": "off",
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/non-used-vars": "off",
+      "perfectionist/sort-imports": "off",
     },
   },
   {

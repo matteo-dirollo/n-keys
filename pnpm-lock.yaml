@@ -65,6 +65,9 @@ importers:
       '@shopnex/store-plugin':
         specifier: 1.0.14
         version: 1.0.14(@types/react@19.0.7)(react@19.0.0)
+      '@stripe/stripe-js':
+        specifier: ^7.3.0
+        version: 7.3.0
       '@tailwindcss/postcss':
         specifier: ^4.0.9
         version: 4.1.3
@@ -3191,6 +3194,10 @@ packages:
 
   '@shopnex/store-plugin@1.0.14':
     resolution: {integrity: sha512-XgGl1+Z3Lb83lQWHOHZyTyvEDwHUqajtEdNk1D+jmMaAwQRiyW5yHRiRm+IsqjiIPc9k+ssvCVn0JYgkFbfFTA==}
+
+  '@stripe/stripe-js@7.3.0':
+    resolution: {integrity: sha512-xnCyFIEI5SQnQrKkCxVj7nS5fWTZap+zuIGzmmxLMdlmgahFJaihK4zogqE8YyKKTLtrp/EldkEijSgtXsRVDg==}
+    engines: {node: '>=12.16'}
 
   '@swc/counter@0.1.3':
     resolution: {integrity: sha512-e2BR4lsJkkRlKZ/qCHPw9ZaSxc0MVUd7gtbtaB7aMvHeJVYe8sOB8DBZkP2DtISHGSku9sCK6T6cnY0CtXrOCQ==}
@@ -11203,6 +11210,8 @@ snapshots:
       - '@types/react'
       - react
       - supports-color
+
+  '@stripe/stripe-js@7.3.0': {}
 
   '@swc/counter@0.1.3': {}
 

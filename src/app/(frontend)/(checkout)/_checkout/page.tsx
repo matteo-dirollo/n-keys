@@ -1,9 +1,9 @@
-/* eslint-disable @typescript-eslint/await-thenable */
 import type { Metadata } from "next";
 
 import { retrieveCart } from "@/app/api/services/cart";
 import { retrieveCustomer } from "@/app/api/services/customers";
 import { notFound } from "next/navigation";
+/* eslint-disable @typescript-eslint/await-thenable */
 import React from "react";
 
 import PaymentWrapper from "../../_components/checkout/payment-wrapper";

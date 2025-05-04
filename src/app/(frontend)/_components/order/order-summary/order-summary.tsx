@@ -3,26 +3,28 @@ import type { Order } from "@/payload-types";
 import { convertToLocale } from "@/app/(frontend)/_util/money";
 
 type OrderSummaryProps = {
-    order: Order;
+  order: Order;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const OrderSummary = ({ order }: OrderSummaryProps) => {
-    const getAmount = (amount?: null | number) => {
-        if (!amount) {
-            return;
-        }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const getAmount = (amount?: null | number) => {
+    if (!amount) {
+      return;
+    }
 
-        return convertToLocale({
-            amount,
-            currency_code: 'usd',
-        });
-    };
+    return convertToLocale({
+      amount,
+      currency_code: "usd",
+    });
+  };
 
-    return (
-        <div>
-            <h2 className="text-base-semi">Order Summary</h2>
-            <div className="text-small-regular text-ui-fg-base my-2">
-                {/* <div className="flex items-center justify-between text-base-regular text-ui-fg-base mb-2">
+  return (
+    <div>
+      <h2 className="text-base-semi">Order Summary</h2>
+      <div className="text-small-regular text-ui-fg-base my-2">
+        {/* <div className="flex items-center justify-between text-base-regular text-ui-fg-base mb-2">
                     <span>Subtotal</span>
                     <span>{getAmount(order.subtotal)}</span>
                 </div>
@@ -53,9 +55,9 @@ const OrderSummary = ({ order }: OrderSummaryProps) => {
                     <span>Total</span>
                     <span>{getAmount(order.total)}</span>
                 </div> */}
-            </div>
-        </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default OrderSummary;

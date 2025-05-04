@@ -1,13 +1,22 @@
-const ErrorMessage = ({ error, 'data-testid': dataTestid }: { error?: string | null, 'data-testid'?: string }) => {
+const ErrorMessage = ({
+  "data-testid": dataTestid,
+  error,
+}: {
+  "data-testid"?: string;
+  error?: null | string;
+}) => {
   if (!error) {
-    return null
+    return null;
   }
 
   return (
-    <div className="pt-2 text-rose-500 text-small-regular" data-testid={dataTestid}>
+    <div
+      className="pt-2 text-rose-500 text-small-regular"
+      data-testid={dataTestid}
+    >
       <span>{error}</span>
     </div>
-  )
-}
+  );
+};
 
-export default ErrorMessage
+export default ErrorMessage;

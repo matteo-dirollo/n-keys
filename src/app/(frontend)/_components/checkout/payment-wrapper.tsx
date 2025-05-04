@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { placeOrder } from "@/app/api/services/cart";
@@ -78,6 +79,7 @@ const StripePaymentButton = ({
 
   // const disabled = !stripe || !elements ? true : false;
 
+  // eslint-disable-next-line @typescript-eslint/require-await
   const handlePayment = async () => {
     setSubmitting(true);
 

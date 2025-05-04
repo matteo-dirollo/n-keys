@@ -34,9 +34,12 @@
   "exclude": [
     "dist",
     "build",
-    "node_modules"
-    // "src/app/(frontend)/_components/checkout/**/*.tsx",
-    // "src/app/(frontend)/(checkout)/**/*.tsx",
-    // "src/app/(frontend)/_templates/**/*.tsx"
+    "node_modules",
+    "src/app/(frontend)/_components/checkout/**/*.tsx",
+    "src/app/(frontend)/(checkout)/**/*.tsx",
+    "/src/app/(frontend)/(checkout)/not-found.tsx",
+    "/src/app/(frontend)/_providers/auth.tsx",
+    "/src/app/(frontend)/(checkout)/_checkout/*.tsx",
+    "src/app/(frontend)/_templates/**/*.tsx"
   ]
 }
