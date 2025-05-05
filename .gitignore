@@ -49,3 +49,7 @@ shoplyjs-new.db
 cj-get-refreshToken.ps1
 cj-refreshToken.json
 cj-product-links.txt
+
+
+collections_rows.sql
+collections_rels_rows.sql
