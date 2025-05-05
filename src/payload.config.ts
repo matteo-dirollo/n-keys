@@ -5,6 +5,10 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildConfig } from "payload";
 import sharp from "sharp";
+import { en } from "@payloadcms/translations/languages/en";
+import { de } from "@payloadcms/translations/languages/de";
+import { it } from "@payloadcms/translations/languages/it";
+import { fr } from "@payloadcms/translations/languages/fr";
 
 import { populatePolicies as createDefaultPolicies } from "./app/api/services/policies";
 import { Collections } from "./collections/Collections";
@@ -25,6 +29,9 @@ import { plugins } from "./plugins";
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 const catalog = [Collections, Products];
+
+
+// const isDevelopment = process.env.NODE_ENV === "development";
 
 export default buildConfig({
   admin: {
@@ -72,6 +79,10 @@ export default buildConfig({
     },
   ],
   globals: [StoreSettings, HeroSection, Footer],
+  i18n: {
+    fallbackLanguage: "en", // Optional: Set the fallback language
+    supportedLanguages: { de, en, fr, it }, // Add supported languages here
+  },
   onInit: async (payload) => {
     await createDefaultPolicies(payload);
   },

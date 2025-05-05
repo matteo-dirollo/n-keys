@@ -7,52 +7,48 @@ import { notFound } from "next/navigation";
 import { getPayload } from "payload";
 
 type Props = {
-    params: Promise<{ handle: string }>;
-    searchParams: Promise<{
-        page?: string;
-        sortBy?: SortOptions;
-    }>;
+  params: Promise<{ handle: string }>;
+  searchParams: Promise<{
+    page?: string;
+    sortBy?: SortOptions;
+  }>;
 };
 
 export default async function CollectionPage(props: Props) {
-    const searchParams = await props.searchParams;
-    const params = await props.params;
-    const { page, sortBy } = searchParams;
-    const payload = await getPayload({ config });
+  const searchParams = await props.searchParams;
+  const params = await props.params;
+  const { page, sortBy } = searchParams;
+  const payload = await getPayload({ config });
 
-    const collectionData = await payload.find({
-        collection: "collections",
-        sort: "createdAt",
-        where: {
-            handle: {
-                equals: params.handle,
-            },
-        },
-    });
+  const collectionData = await payload.find({
+    collection: "collections",
+    sort: "createdAt",
+    where: {
+      handle: {
+        equals: params.handle,
+      },
+    },
+  });
 
-    const collection = collectionData.docs[0];
+  const collection = collectionData.docs[0];
 
-    const products = await payload.find({
-        collection: "products",
-        sort: "createdAt",
-        where: {
-            collections: {
-                equals: collection.id,
-            },
-        },
-    });
+  const products = await payload.find({
+    collection: "products",
+    sort: "createdAt",
+    where: {
+      collections: {
+        equals: collection.id,
+      },
+    },
+  });
+  //   console.log("products", products.docs);
+  collection.products = mapProducts(products.docs);
 
-    collection.products = mapProducts(products.docs);
+  if (!collection) {
+    notFound();
+  }
 
-    if (!collection) {
-        notFound();
-    }
-
-    return (
-        <CollectionTemplate
-            collection={collection}
-            page={page}
-            sortBy={sortBy}
-        />
-    );
+  return (
+    <CollectionTemplate collection={collection} page={page} sortBy={sortBy} />
+  );
 }
