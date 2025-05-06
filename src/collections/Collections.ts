@@ -7,33 +7,33 @@ import { handleField } from "@/fields/slug";
 import { groups } from "./groups";
 
 export const Collections: CollectionConfig = {
-    slug: "collections",
-    access: {
-        create: admins,
-        delete: admins,
-        read: anyone,
-        update: admins,
+  slug: "collections",
+  access: {
+    create: admins,
+    delete: admins,
+    read: anyone,
+    update: admins,
+  },
+  admin: {
+    group: groups.catalog,
+    useAsTitle: "title",
+  },
+  fields: [
+    {
+      name: "title",
+      type: "text",
+      required: true,
     },
-    admin: {
-        group: groups.catalog,
-        useAsTitle: "title",
+    handleField(),
+    description(),
+    {
+      name: "products",
+      type: "relationship",
+      admin: {
+        position: "sidebar",
+      },
+      hasMany: true, // Allows a collection to have many products
+      relationTo: "products", // Points to the Products collection
     },
-    fields: [
-        {
-            name: "title",
-            type: "text",
-            required: true,
-        },
-        handleField(),
-        description(),
-        {
-            name: "products",
-            type: "relationship",
-            admin: {
-                position: "sidebar",
-            },
-            hasMany: true, // Allows a collection to have many products
-            relationTo: "products", // Points to the Products collection
-        },
-    ],
+  ],
 };
