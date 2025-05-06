@@ -4,7 +4,7 @@
 import type { HttpTypes } from "@medusajs/types";
 import type { Stripe, StripeElementsOptions } from "@stripe/stripe-js";
 
-import { createContext } from "react";
+import React, { createContext } from "react";
 
 type StripeWrapperProps = {
   children: React.ReactNode;

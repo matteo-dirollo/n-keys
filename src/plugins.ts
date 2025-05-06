@@ -10,7 +10,7 @@ import { paymentSucceeded } from "./webhooks/payment-succeeded";
 
 export const plugins: Plugin[] = [
   stripePlugin({
-    isTestKey: Boolean(process.env.NEXT_PUBLIC_STRIPE_IS_TEST_KEY),
+    // isTestKey: Boolean(process.env.NEXT_PUBLIC_STRIPE_IS_TEST_KEY),
     logs: true,
     rest: false,
     stripeSecretKey: process.env.STRIPE_SECRET_KEY || "",

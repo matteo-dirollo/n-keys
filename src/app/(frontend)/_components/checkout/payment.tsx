@@ -7,7 +7,7 @@ import { RadioGroup } from "@headlessui/react";
 import { CheckCircleSolid, CreditCard } from "@medusajs/icons";
 import { Button, clx, Container, Divider, Heading, Text } from "@medusajs/ui";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import ErrorMessage from "../error-message";
 import PaymentContainer from "./payment-container";
