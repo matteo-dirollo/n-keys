@@ -41,7 +41,7 @@ export default async function CollectionPage(props: Props) {
       },
     },
   });
-  //   console.log("products", products.docs);
+  console.log("Fetched collection data:", collectionData);
   collection.products = mapProducts(products.docs);
 
   if (!collection) {

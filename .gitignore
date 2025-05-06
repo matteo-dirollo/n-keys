@@ -50,5 +50,6 @@ cj-get-refreshToken.ps1
 cj-refreshToken.json
 cj-product-links.txt
 
-collections_rels_rows.sql
+
 collections_rows.sql
+collections_rels_rows.sql
