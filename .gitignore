@@ -57,3 +57,5 @@ collections_rels_rows.sql
 publisher_api.yml
 
 desktop.ini
+
+collectiondocsObject.go
