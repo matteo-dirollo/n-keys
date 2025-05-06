@@ -84,7 +84,11 @@ export interface Config {
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
-  collectionsJoins: {};
+  collectionsJoins: {
+    collections: {
+      products: 'products';
+    };
+  };
   collectionsSelect: {
     orders: OrdersSelect<false> | OrdersSelect<true>;
     collections: CollectionsSelect<false> | CollectionsSelect<true>;
@@ -337,7 +341,11 @@ export interface Collection {
     };
     [k: string]: unknown;
   } | null;
-  products?: (number | Product)[] | null;
+  products?: {
+    docs?: (number | Product)[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
   updatedAt: string;
   createdAt: string;
 }
