@@ -15,7 +15,7 @@ import SalesChart from "./SalesChart";
 const baseClass = "dashboard";
 
 // Helper: Format currency
-const formatCurrency = (amount: number, currency = "USD") =>
+const formatCurrency = (amount: number, currency = "EUR") =>
   new Intl.NumberFormat("en-US", {
     currency,
     maximumFractionDigits: 2,

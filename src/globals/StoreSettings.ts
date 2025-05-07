@@ -21,7 +21,7 @@ const StoreSettings: GlobalConfig = {
     {
       name: "currency",
       type: "select",
-      defaultValue: "USD",
+      defaultValue: "EUR",
       options: currency.codes().map((code) => ({
         label: `${currency.code(code)?.currency} (${currency.code(code)?.code})`,
         value: code,

@@ -36,7 +36,7 @@ export default function ProductPrice({
         <span data-testid="product-price" data-value={price}>
           {convertToLocale({
             amount: price,
-            currency_code: currency || "USD",
+            currency_code: currency || "EUR",
           })}
         </span>
       </span>
@@ -51,7 +51,7 @@ export default function ProductPrice({
             >
               {convertToLocale({
                 amount: originalPrice,
-                currency_code: currency || "USD",
+                currency_code: currency || "EUR",
               })}
             </span>
           </p>
