@@ -33,5 +33,28 @@ export const Collections: CollectionConfig = {
       hasMany: true, // Allows a collection to have many products
       on: "collections", // Points to the collections collection
     },
+<<<<<<< HEAD
   ],
+=======
+    fields: [
+        {
+            name: "title",
+            type: "text",
+            required: true,
+        },
+        {
+            name: "imageUrl",
+            type: "text",
+        },
+        handleField(),
+        description(),
+        {
+            name: "products",
+            type: "join",
+            collection: "products",
+            hasMany: true,
+            on: "collections",
+        },
+    ],
+>>>>>>> upstream/main
 };

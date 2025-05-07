@@ -36,6 +36,7 @@ export default async function CollectionPage(props: Props) {
     notFound();
   }
 
+<<<<<<< HEAD
   const products = await payload.find({
     collection: "products",
     sort: "createdAt",
@@ -45,6 +46,9 @@ export default async function CollectionPage(props: Props) {
       },
     },
   });
+=======
+    collection.products = mapProducts(products.docs) as any;
+>>>>>>> upstream/main
 
   collection.products = mapProducts(
     products.docs
