@@ -31,7 +31,6 @@ const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 const catalog = [Collections, Products];
 
-
 // const isDevelopment = process.env.NODE_ENV === "development";
 
 export default buildConfig({
@@ -40,7 +39,6 @@ export default buildConfig({
       autoGenerate: true,
       baseDir: path.resolve(dirname),
     },
-<<<<<<< HEAD
     suppressHydrationWarning: true,
     user: Users.slug,
 
@@ -50,23 +48,6 @@ export default buildConfig({
         dashboard: {
           Component: "@/admin/components/Dashboard/Dashboard",
           path: "@/admin/components/Dashboard/Dashboard",
-=======
-    collections: [
-        Orders,
-        ...catalog,
-        Users,
-        Media,
-        Policies,
-        GiftCards,
-        Payments,
-        Locations,
-        Shipping,
-        Carts,
-    ],
-    db: sqliteAdapter({
-        client: {
-            url: process.env.DATABASE_URI || "",
->>>>>>> upstream/main
         },
       },
     },
@@ -81,6 +62,7 @@ export default buildConfig({
     Payments,
     Locations,
     Shipping,
+    Carts,
   ],
   db: vercelPostgresAdapter({
     pool: {
