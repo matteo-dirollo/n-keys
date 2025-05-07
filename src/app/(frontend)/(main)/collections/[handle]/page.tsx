@@ -46,9 +46,7 @@ export default async function CollectionPage(props: Props) {
     },
   });
 
-  collection.products = mapProducts(
-    products.docs
-  ) as typeof collection.products;
+  collection.products = mapProducts(products.docs) as any;
 
   if (!collection) {
     notFound();
