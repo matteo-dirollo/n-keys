@@ -16,7 +16,7 @@ const OrderSummary = ({ order }: OrderSummaryProps) => {
 
     return convertToLocale({
       amount,
-      currency_code: "usd",
+      currency_code: "eur",
     });
   };
 
