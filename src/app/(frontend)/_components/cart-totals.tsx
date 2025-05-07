@@ -21,7 +21,7 @@ const CartTotals = ({ cart, currencyCode }: any) => {
           <span data-testid="cart-subtotal" data-value={cartTotal || 0}>
             {convertToLocale({
               amount: cartTotal ?? 0,
-              currency_code: "usd",
+              currency_code: "eur",
             })}
           </span>
         </div>
@@ -30,7 +30,7 @@ const CartTotals = ({ cart, currencyCode }: any) => {
           <span data-testid="cart-shipping" data-value={shipping_subtotal || 0}>
             {convertToLocale({
               amount: shipping_subtotal ?? 0,
-              currency_code: "usd",
+              currency_code: "eur",
             })}
           </span>
         </div>
@@ -39,7 +39,7 @@ const CartTotals = ({ cart, currencyCode }: any) => {
           <span data-testid="cart-taxes" data-value={tax_total || 0}>
             {convertToLocale({
               amount: tax_total ?? 0,
-              currency_code: "usd",
+              currency_code: "eur",
             })}
           </span>
         </div>
@@ -54,7 +54,7 @@ const CartTotals = ({ cart, currencyCode }: any) => {
         >
           {convertToLocale({
             amount: cartTotal ?? 0,
-            currency_code: "usd",
+            currency_code: "eur",
           })}
         </span>
       </div>
