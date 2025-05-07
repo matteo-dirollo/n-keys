@@ -13,7 +13,7 @@ export const mapToStripeLineItems = (
   return variants.map((variant) => {
     return {
       price_data: {
-        currency: "usd", // Adjust if needed
+        currency: "eur", // Adjust if needed
         product_data: {
           name: `Product ${variant.id}`, // Modify if you have actual product names
           description: variant.options
