@@ -13,7 +13,7 @@ const seed = async () => {
     slug: "store-settings",
     data: {
       name: "ShopNex",
-      currency: "USD",
+      currency: "EUR",
     },
   });
 
