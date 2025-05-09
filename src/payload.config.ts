@@ -30,7 +30,6 @@ const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 const catalog = [Collections, Products];
 
-
 // const isDevelopment = process.env.NODE_ENV === "development";
 
 export default buildConfig({
