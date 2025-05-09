@@ -32,15 +32,17 @@ export default async function CollectionPage(props: Props) {
 
   const collection = collectionData.docs[0];
 
-  if (!collection) {
-    notFound();
-  }
+  const products = await payload.find({
+    collection: "products",
+    sort: "createdAt",
+    where: {
+      collections: {
+        equals: collection.id,
+      },
+    },
+  });
 
   collection.products = mapProducts(products.docs) as any;
-
-  collection.products = mapProducts(
-    products.docs
-  ) as typeof collection.products;
 
   if (!collection) {
     notFound();

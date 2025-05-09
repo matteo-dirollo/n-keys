@@ -38,49 +38,32 @@ export const getVariants = async (variantIds: string[]) => {
   return variantIds.map((id) => variantsMap.get(id)).filter(Boolean);
 };
 
-<<<<<<< HEAD
-export const getProducts = async (args: { [key: string]: string }) => {
-  const key = Object.keys(args)[0];
-  const value = args[key];
+export const getProducts = async () => {
   const payload = await getPayload({ config });
   const products = await payload.find({
     collection: "products",
-    limit: 1,
     where: {
-      [key]: {
-        equals: value,
+      visible: {
+        equals: true,
       },
     },
   });
   return products.docs;
-=======
-export const getProducts = async () => {
-    const payload = await getPayload({ config });
-    const products = await payload.find({
-        collection: "products",
-        where: {
-            visible: {
-                equals: true,
-            },
-        },
-    });
-    return products.docs;
->>>>>>> upstream/main
 };
 
 export const getProduct = async (handle: string) => {
-    const payload = await getPayload({ config });
-    const product = await payload.find({
-        collection: "products",
-        limit: 1,
-        where: {
-            handle: {
-                equals: handle,
-            },
-        },
-    });
+  const payload = await getPayload({ config });
+  const product = await payload.find({
+    collection: "products",
+    limit: 1,
+    where: {
+      handle: {
+        equals: handle,
+      },
+    },
+  });
 
-    return product.docs[0];
+  return product.docs[0];
 };
 
 export const getPaginatedProducts = async ({
@@ -100,7 +83,6 @@ export const getPaginatedProducts = async ({
 
   let where = {};
 
-<<<<<<< HEAD
   if (collectionId) {
     where = {
       ...where,
@@ -141,46 +123,4 @@ export const getPaginatedProducts = async ({
     total: products.totalDocs,
     // pages: products.pages,
   };
-=======
-    if (collectionId) {
-        where = {
-            ...where,
-            "collection.id": {
-                equals: collectionId,
-            },
-        };
-    }
-
-    if (productsIds && productsIds.length > 0) {
-        where = {
-            ...where,
-            id: {
-                in: productsIds,
-            },
-        };
-    }
-
-    const [sortName, sortDirection] = sortBy?.split("_") || [];
-
-    const sort =
-        sortDirection === "asc"
-            ? `variants.[0].${sortName}`
-            : `-variants.[0].${sortName}`;
-
-    const products = await payload.find({
-        collection: "products",
-        limit,
-        page,
-        sort,
-        where,
-    });
-
-    return {
-        docs: products.docs,
-        limit: products.limit,
-        page: products.page,
-        total: products.totalDocs,
-        // pages: products.pages,
-    };
->>>>>>> upstream/main
 };
