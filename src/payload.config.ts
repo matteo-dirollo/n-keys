@@ -11,6 +11,7 @@ import { it } from "@payloadcms/translations/languages/it";
 import { fr } from "@payloadcms/translations/languages/fr";
 
 import { populatePolicies as createDefaultPolicies } from "./app/api/services/policies";
+import { Carts } from "./collections/Carts";
 import { Collections } from "./collections/Collections";
 import { GiftCards } from "./collections/GiftCards";
 import { Locations } from "./collections/Locations";
@@ -61,6 +62,7 @@ export default buildConfig({
     Payments,
     Locations,
     Shipping,
+    Carts,
   ],
   db: vercelPostgresAdapter({
     pool: {

@@ -32,10 +32,6 @@ export default async function CollectionPage(props: Props) {
 
   const collection = collectionData.docs[0];
 
-  if (!collection) {
-    notFound();
-  }
-
   const products = await payload.find({
     collection: "products",
     sort: "createdAt",
@@ -46,9 +42,7 @@ export default async function CollectionPage(props: Props) {
     },
   });
 
-  collection.products = mapProducts(
-    products.docs
-  ) as typeof collection.products;
+  collection.products = mapProducts(products.docs) as any;
 
   if (!collection) {
     notFound();

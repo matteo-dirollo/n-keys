@@ -24,14 +24,18 @@ export const Collections: CollectionConfig = {
       type: "text",
       required: true,
     },
+    {
+      name: "imageUrl",
+      type: "text",
+    },
     handleField(),
     description(),
     {
       name: "products",
       type: "join",
-      collection: "products", // Points to the collections collection
-      hasMany: true, // Allows a collection to have many products
-      on: "collections", // Points to the collections collection
+      collection: "products",
+      hasMany: true,
+      on: "collections",
     },
   ],
 };

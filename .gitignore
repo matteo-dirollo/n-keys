@@ -44,6 +44,7 @@ payload-generated-schema.ts
 
 /media
 
+<<<<<<< HEAD
 shoplyjs-new.db
 
 cj-get-refreshToken.ps1
@@ -60,3 +61,6 @@ publisher_api.yml
 desktop.ini
 
 collectiondocsObject.go
+=======
+dev.db
+>>>>>>> upstream/main
