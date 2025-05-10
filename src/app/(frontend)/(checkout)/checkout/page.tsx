@@ -1,14 +1,13 @@
 /* eslint-disable @typescript-eslint/await-thenable */
 import type { Metadata } from "next";
 
-import { retrieveCart } from "@/app/api/services/cart";
-import { retrieveCustomer } from "@/app/api/services/customers";
+import { retrieveCart } from "../../../api/services/cart";
+import { retrieveCustomer } from "../../../api/services/customers";
 import { notFound } from "next/navigation";
 
 import PaymentWrapper from "../../_components/checkout/payment-wrapper";
 import CheckoutForm from "../../_templates/checkout-form";
 import CheckoutSummary from "../../_templates/checkout-summary";
-import React from "react";
 
 export const metadata: Metadata = {
   title: "Checkout",
