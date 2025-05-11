@@ -1,78 +1,21 @@
-import type {
-  MigrateDownArgs,
-  MigrateUpArgs,
-} from "@payloadcms/db-vercel-postgres";
-import { sql } from "@payloadcms/db-vercel-postgres";
+import { MigrateUpArgs, MigrateDownArgs, sql } from '@payloadcms/db-vercel-postgres'
 
 export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   await db.execute(sql`
-
-DO $$ BEGIN
-  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'enum_orders_payment_status') THEN
-    CREATE TYPE "public"."enum_orders_payment_status" AS ENUM('pending', 'paid', 'failed', 'refunded');
-  END IF;
-END $$;
-DO $$ BEGIN
-  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'enum_orders_order_status') THEN
-    CREATE TYPE "public"."enum_orders_order_status" AS ENUM('pending', 'processing', 'shipped', 'delivered', 'canceled');
-  END IF;
-END $$;
-DO $$ BEGIN
-  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'enum_orders_payment_gateway') THEN
-    CREATE TYPE "public"."enum_orders_payment_gateway" AS ENUM('stripe');
-  END IF;
-END $$;
-DO $$ BEGIN
-  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'enum_products_sales_channels') THEN
-    CREATE TYPE "public"."enum_products_sales_channels" AS ENUM('all', 'onlineStore', 'pos', 'mobileApp');
-  END IF;
-END $$;
-DO $$ BEGIN
-  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'enum_products_source') THEN
-    CREATE TYPE "public"."enum_products_source" AS ENUM('manual', 'cj');
-  END IF;
-END $$;
-DO $$ BEGIN
-  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'enum_users_roles') THEN
-    CREATE TYPE "public"."enum_users_roles" AS ENUM('admin', 'customer');
-  END IF;
-END $$;
-DO $$ BEGIN
-  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'enum_payments_blocks_manual_provider_method_type') THEN
-    CREATE TYPE "public"."enum_payments_blocks_manual_provider_method_type" AS ENUM('cod', 'bankTransfer', 'inStore', 'other');
-  END IF;
-END $$;
-DO $$ BEGIN
-  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'enum_exports_format') THEN
-    CREATE TYPE "public"."enum_exports_format" AS ENUM('csv', 'json');
-  END IF;
-END $$;
-DO $$ BEGIN
-  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'enum_exports_drafts') THEN
-    CREATE TYPE "public"."enum_exports_drafts" AS ENUM('yes', 'no');
-  END IF;
-END $$;
-DO $$ BEGIN
-  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'enum_payload_jobs_log_task_slug') THEN
-    CREATE TYPE "public"."enum_payload_jobs_log_task_slug" AS ENUM('inline', 'createCollectionExport');
-  END IF;
-END $$;
-DO $$ BEGIN
-  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'enum_payload_jobs_log_state') THEN
-    CREATE TYPE "public"."enum_payload_jobs_log_state" AS ENUM('failed', 'succeeded');
-  END IF;
-END $$;
-DO $$ BEGIN
-  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'enum_payload_jobs_task_slug') THEN
-    CREATE TYPE "public"."enum_payload_jobs_task_slug" AS ENUM('inline', 'createCollectionExport');
-  END IF;
-END $$;
-DO $$ BEGIN
-  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'enum_store_settings_currency') THEN
-    CREATE TYPE "public"."enum_store_settings_currency" AS ENUM('AED', 'AFN', 'ALL', 'AMD', 'ANG', 'AOA', 'ARS', 'AUD', 'AWG', 'AZN', 'BAM', 'BBD', 'BDT', 'BGN', 'BHD', 'BIF', 'BMD', 'BND', 'BOB', 'BOV', 'BRL', 'BSD', 'BTN', 'BWP', 'BYN', 'BZD', 'CAD', 'CDF', 'CHE', 'CHF', 'CHW', 'CLF', 'CLP', 'CNY', 'COP', 'COU', 'CRC', 'CUC', 'CUP', 'CVE', 'CZK', 'DJF', 'DKK', 'DOP', 'DZD', 'EGP', 'ERN', 'ETB', 'EUR', 'FJD', 'FKP', 'GBP', 'GEL', 'GHS', 'GIP', 'GMD', 'GNF', 'GTQ', 'GYD', 'HKD', 'HNL', 'HTG', 'HUF', 'IDR', 'ILS', 'INR', 'IQD', 'IRR', 'ISK', 'JMD', 'JOD', 'JPY', 'KES', 'KGS', 'KHR', 'KMF', 'KPW', 'KRW', 'KWD', 'KYD', 'KZT', 'LAK', 'LBP', 'LKR', 'LRD', 'LSL', 'LYD', 'MAD', 'MDL', 'MGA', 'MKD', 'MMK', 'MNT', 'MOP', 'MRU', 'MUR', 'MVR', 'MWK', 'MXN', 'MXV', 'MYR', 'MZN', 'NAD', 'NGN', 'NIO', 'NOK', 'NPR', 'NZD', 'OMR', 'PAB', 'PEN', 'PGK', 'PHP', 'PKR', 'PLN', 'PYG', 'QAR', 'RON', 'RSD', 'RUB', 'RWF', 'SAR', 'SBD', 'SCR', 'SDG', 'SEK', 'SGD', 'SHP', 'SLE', 'SOS', 'SRD', 'SSP', 'STN', 'SVC', 'SYP', 'SZL', 'THB', 'TJS', 'TMT', 'TND', 'TOP', 'TRY', 'TTD', 'TWD', 'TZS', 'UAH', 'UGX', 'USD', 'USN', 'UYI', 'UYU', 'UYW', 'UZS', 'VED', 'VES', 'VND', 'VUV', 'WST', 'XAF', 'XAG', 'XAU', 'XBA', 'XBB', 'XBC', 'XBD', 'XCD', 'XDR', 'XOF', 'XPD', 'XPF', 'XPT', 'XSU', 'XTS', 'XUA', 'XXX', 'YER', 'ZAR', 'ZMW', 'ZWG');
-  END IF;
-END $$;
-   CREATE TABLE IF NOT EXISTS "orders_items" (
+   CREATE TYPE "public"."enum_orders_payment_status" AS ENUM('pending', 'paid', 'failed', 'refunded');
+  CREATE TYPE "public"."enum_orders_order_status" AS ENUM('pending', 'processing', 'shipped', 'delivered', 'canceled');
+  CREATE TYPE "public"."enum_orders_payment_gateway" AS ENUM('stripe');
+  CREATE TYPE "public"."enum_products_sales_channels" AS ENUM('all', 'onlineStore', 'pos', 'mobileApp');
+  CREATE TYPE "public"."enum_products_source" AS ENUM('manual', 'cj');
+  CREATE TYPE "public"."enum_users_roles" AS ENUM('admin', 'customer');
+  CREATE TYPE "public"."enum_payments_blocks_manual_provider_method_type" AS ENUM('cod', 'bankTransfer', 'inStore', 'other');
+  CREATE TYPE "public"."enum_exports_format" AS ENUM('csv', 'json');
+  CREATE TYPE "public"."enum_exports_drafts" AS ENUM('yes', 'no');
+  CREATE TYPE "public"."enum_payload_jobs_log_task_slug" AS ENUM('inline', 'createCollectionExport');
+  CREATE TYPE "public"."enum_payload_jobs_log_state" AS ENUM('failed', 'succeeded');
+  CREATE TYPE "public"."enum_payload_jobs_task_slug" AS ENUM('inline', 'createCollectionExport');
+  CREATE TYPE "public"."enum_store_settings_currency" AS ENUM('AED', 'AFN', 'ALL', 'AMD', 'ANG', 'AOA', 'ARS', 'AUD', 'AWG', 'AZN', 'BAM', 'BBD', 'BDT', 'BGN', 'BHD', 'BIF', 'BMD', 'BND', 'BOB', 'BOV', 'BRL', 'BSD', 'BTN', 'BWP', 'BYN', 'BZD', 'CAD', 'CDF', 'CHE', 'CHF', 'CHW', 'CLF', 'CLP', 'CNY', 'COP', 'COU', 'CRC', 'CUC', 'CUP', 'CVE', 'CZK', 'DJF', 'DKK', 'DOP', 'DZD', 'EGP', 'ERN', 'ETB', 'EUR', 'FJD', 'FKP', 'GBP', 'GEL', 'GHS', 'GIP', 'GMD', 'GNF', 'GTQ', 'GYD', 'HKD', 'HNL', 'HTG', 'HUF', 'IDR', 'ILS', 'INR', 'IQD', 'IRR', 'ISK', 'JMD', 'JOD', 'JPY', 'KES', 'KGS', 'KHR', 'KMF', 'KPW', 'KRW', 'KWD', 'KYD', 'KZT', 'LAK', 'LBP', 'LKR', 'LRD', 'LSL', 'LYD', 'MAD', 'MDL', 'MGA', 'MKD', 'MMK', 'MNT', 'MOP', 'MRU', 'MUR', 'MVR', 'MWK', 'MXN', 'MXV', 'MYR', 'MZN', 'NAD', 'NGN', 'NIO', 'NOK', 'NPR', 'NZD', 'OMR', 'PAB', 'PEN', 'PGK', 'PHP', 'PKR', 'PLN', 'PYG', 'QAR', 'RON', 'RSD', 'RUB', 'RWF', 'SAR', 'SBD', 'SCR', 'SDG', 'SEK', 'SGD', 'SHP', 'SLE', 'SOS', 'SRD', 'SSP', 'STN', 'SVC', 'SYP', 'SZL', 'THB', 'TJS', 'TMT', 'TND', 'TOP', 'TRY', 'TTD', 'TWD', 'TZS', 'UAH', 'UGX', 'USD', 'USN', 'UYI', 'UYU', 'UYW', 'UZS', 'VED', 'VES', 'VND', 'VUV', 'WST', 'XAF', 'XAG', 'XAU', 'XBA', 'XBB', 'XBC', 'XBD', 'XCD', 'XDR', 'XOF', 'XPD', 'XPF', 'XPT', 'XSU', 'XTS', 'XUA', 'XXX', 'YER', 'ZAR', 'ZMW', 'ZWG');
+  CREATE TABLE IF NOT EXISTS "orders_items" (
   	"_order" integer NOT NULL,
   	"_parent_id" integer NOT NULL,
   	"id" varchar PRIMARY KEY NOT NULL,
@@ -936,14 +879,10 @@ END $$;
   CREATE INDEX IF NOT EXISTS "footer_blocks_basic_footer_parent_id_idx" ON "footer_blocks_basic_footer" USING btree ("_parent_id");
   CREATE INDEX IF NOT EXISTS "footer_blocks_basic_footer_path_idx" ON "footer_blocks_basic_footer" USING btree ("_path");
   CREATE INDEX IF NOT EXISTS "cj_settings_items_order_idx" ON "cj_settings_items" USING btree ("_order");
-  CREATE INDEX IF NOT EXISTS "cj_settings_items_parent_id_idx" ON "cj_settings_items" USING btree ("_parent_id");`);
+  CREATE INDEX IF NOT EXISTS "cj_settings_items_parent_id_idx" ON "cj_settings_items" USING btree ("_parent_id");`)
 }
 
-export async function down({
-  db,
-  payload,
-  req,
-}: MigrateDownArgs): Promise<void> {
+export async function down({ db, payload, req }: MigrateDownArgs): Promise<void> {
   await db.execute(sql`
    DROP TABLE "orders_items" CASCADE;
   DROP TABLE "orders" CASCADE;
@@ -1001,5 +940,5 @@ export async function down({
   DROP TYPE "public"."enum_payload_jobs_log_task_slug";
   DROP TYPE "public"."enum_payload_jobs_log_state";
   DROP TYPE "public"."enum_payload_jobs_task_slug";
-  DROP TYPE "public"."enum_store_settings_currency";`);
+  DROP TYPE "public"."enum_store_settings_currency";`)
 }

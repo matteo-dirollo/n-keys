@@ -38,6 +38,10 @@ export default [
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/non-used-vars": "off",
       "perfectionist/sort-imports": "off",
+      "@typescript-eslint/consistent-type-imports": "off",
+      "no-console": ["warn", { "allow": ["warn", "error"] }],
+      "perfectionist/sort-named-imports": "off",
+    "perfectionist/sort-objects": "off"
     },
   },
   {
