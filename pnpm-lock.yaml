@@ -29,9 +29,12 @@ importers:
       '@medusajs/ui-preset':
         specifier: ^2.5.1
         version: 2.7.1(tailwindcss@4.1.6)
+      '@payloadcms/db-postgres':
+        specifier: 3.31.0
+        version: 3.31.0(@neondatabase/serverless@0.9.5)(@opentelemetry/api@1.9.0)(@types/react@19.0.7)(@vercel/postgres@0.9.0)(payload@3.31.0(bufferutil@4.0.9)(graphql@16.11.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react@19.0.0)
       '@payloadcms/db-vercel-postgres':
         specifier: 3.31.0
-        version: 3.31.0(@neondatabase/serverless@0.9.5)(@opentelemetry/api@1.9.0)(@types/pg@8.11.6)(@types/react@19.0.7)(payload@3.31.0(bufferutil@4.0.9)(graphql@16.11.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react@19.0.0)
+        version: 3.31.0(@neondatabase/serverless@0.9.5)(@opentelemetry/api@1.9.0)(@types/pg@8.10.2)(@types/react@19.0.7)(payload@3.31.0(bufferutil@4.0.9)(graphql@16.11.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react@19.0.0)
       '@payloadcms/next':
         specifier: 3.31.0
         version: 3.31.0(@types/react@19.0.7)(graphql@16.11.0)(monaco-editor@0.52.2)(next@15.2.4(@opentelemetry/api@1.9.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.31.0(bufferutil@4.0.9)(graphql@16.11.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
@@ -1740,6 +1743,11 @@ packages:
     peerDependencies:
       '@opentelemetry/api': ^1.1.0
 
+  '@payloadcms/db-postgres@3.31.0':
+    resolution: {integrity: sha512-iGn+EsXCL4/igXCPFhp4fA0WElPvXHVJYSC4Ow/LAaJnDobdtdEB+aOm2k4bvsP91nZSVhxyT1lNoTDN6KHo8A==}
+    peerDependencies:
+      payload: 3.31.0
+
   '@payloadcms/db-vercel-postgres@3.31.0':
     resolution: {integrity: sha512-pcq+OvGiV3bh6/XK9aFL31nO5dR/SqvFuI0kHXgGxHRrHfT/n+PuWsLkE8LvQveDkUJ5c9pANBQ71eHnwQfAvg==}
     peerDependencies:
@@ -3426,6 +3434,9 @@ packages:
 
   '@types/pg-pool@2.0.6':
     resolution: {integrity: sha512-TaAUE5rq2VQYxab5Ts7WZhKNmuN78Q6PiFonTDdpbx8a1H0M1vhy3rhiMjl+e2iHmogyMw7jZF4FrE6eJUy5HQ==}
+
+  '@types/pg@8.10.2':
+    resolution: {integrity: sha512-MKFs9P6nJ+LAeHLU3V0cODEOgyThJ3OAnmOlsZsxux6sfQs3HRXR5bBn7xG5DjckEFhTAxsXi7k7cd0pCMxpJw==}
 
   '@types/pg@8.11.6':
     resolution: {integrity: sha512-/2WmmBXHLsfRqzfHW7BNZ8SbYzE8OSk7i3WjFYvfgRHj7S1xj+16Je5fUKv3lVdVzk/zn9TXOqf+avFCFIE0yQ==}
@@ -9186,13 +9197,56 @@ snapshots:
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/core': 1.30.1(@opentelemetry/api@1.9.0)
 
-  '@payloadcms/db-vercel-postgres@3.31.0(@neondatabase/serverless@0.9.5)(@opentelemetry/api@1.9.0)(@types/pg@8.11.6)(@types/react@19.0.7)(payload@3.31.0(bufferutil@4.0.9)(graphql@16.11.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react@19.0.0)':
+  '@payloadcms/db-postgres@3.31.0(@neondatabase/serverless@0.9.5)(@opentelemetry/api@1.9.0)(@types/react@19.0.7)(@vercel/postgres@0.9.0)(payload@3.31.0(bufferutil@4.0.9)(graphql@16.11.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react@19.0.0)':
     dependencies:
-      '@payloadcms/drizzle': 3.31.0(@neondatabase/serverless@0.9.5)(@opentelemetry/api@1.9.0)(@types/pg@8.11.6)(@types/react@19.0.7)(@vercel/postgres@0.9.0)(payload@3.31.0(bufferutil@4.0.9)(graphql@16.11.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(pg@8.11.3)(react@19.0.0)
+      '@payloadcms/drizzle': 3.31.0(@neondatabase/serverless@0.9.5)(@opentelemetry/api@1.9.0)(@types/pg@8.10.2)(@types/react@19.0.7)(@vercel/postgres@0.9.0)(payload@3.31.0(bufferutil@4.0.9)(graphql@16.11.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(pg@8.11.3)(react@19.0.0)
+      '@types/pg': 8.10.2
+      console-table-printer: 2.12.1
+      drizzle-kit: 0.28.0
+      drizzle-orm: 0.36.1(@neondatabase/serverless@0.9.5)(@opentelemetry/api@1.9.0)(@types/pg@8.10.2)(@types/react@19.0.7)(@vercel/postgres@0.9.0)(pg@8.11.3)(react@19.0.0)
+      payload: 3.31.0(bufferutil@4.0.9)(graphql@16.11.0)(typescript@5.7.3)(utf-8-validate@6.0.5)
+      pg: 8.11.3
+      prompts: 2.4.2
+      to-snake-case: 1.0.0
+      uuid: 10.0.0
+    transitivePeerDependencies:
+      - '@aws-sdk/client-rds-data'
+      - '@cloudflare/workers-types'
+      - '@electric-sql/pglite'
+      - '@libsql/client'
+      - '@libsql/client-wasm'
+      - '@neondatabase/serverless'
+      - '@op-engineering/op-sqlite'
+      - '@opentelemetry/api'
+      - '@planetscale/database'
+      - '@prisma/client'
+      - '@tidbcloud/serverless'
+      - '@types/better-sqlite3'
+      - '@types/react'
+      - '@types/sql.js'
+      - '@vercel/postgres'
+      - '@xata.io/client'
+      - better-sqlite3
+      - bun-types
+      - expo-sqlite
+      - knex
+      - kysely
+      - mysql2
+      - pg-native
+      - postgres
+      - prisma
+      - react
+      - sql.js
+      - sqlite3
+      - supports-color
+
+  '@payloadcms/db-vercel-postgres@3.31.0(@neondatabase/serverless@0.9.5)(@opentelemetry/api@1.9.0)(@types/pg@8.10.2)(@types/react@19.0.7)(payload@3.31.0(bufferutil@4.0.9)(graphql@16.11.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react@19.0.0)':
+    dependencies:
+      '@payloadcms/drizzle': 3.31.0(@neondatabase/serverless@0.9.5)(@opentelemetry/api@1.9.0)(@types/pg@8.10.2)(@types/react@19.0.7)(@vercel/postgres@0.9.0)(payload@3.31.0(bufferutil@4.0.9)(graphql@16.11.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(pg@8.11.3)(react@19.0.0)
       '@vercel/postgres': 0.9.0
       console-table-printer: 2.12.1
       drizzle-kit: 0.28.0
-      drizzle-orm: 0.36.1(@neondatabase/serverless@0.9.5)(@opentelemetry/api@1.9.0)(@types/pg@8.11.6)(@types/react@19.0.7)(@vercel/postgres@0.9.0)(pg@8.11.3)(react@19.0.0)
+      drizzle-orm: 0.36.1(@neondatabase/serverless@0.9.5)(@opentelemetry/api@1.9.0)(@types/pg@8.10.2)(@types/react@19.0.7)(@vercel/postgres@0.9.0)(pg@8.11.3)(react@19.0.0)
       payload: 3.31.0(bufferutil@4.0.9)(graphql@16.11.0)(typescript@5.7.3)(utf-8-validate@6.0.5)
       pg: 8.11.3
       prompts: 2.4.2
@@ -9229,10 +9283,10 @@ snapshots:
       - sqlite3
       - supports-color
 
-  '@payloadcms/drizzle@3.31.0(@neondatabase/serverless@0.9.5)(@opentelemetry/api@1.9.0)(@types/pg@8.11.6)(@types/react@19.0.7)(@vercel/postgres@0.9.0)(payload@3.31.0(bufferutil@4.0.9)(graphql@16.11.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(pg@8.11.3)(react@19.0.0)':
+  '@payloadcms/drizzle@3.31.0(@neondatabase/serverless@0.9.5)(@opentelemetry/api@1.9.0)(@types/pg@8.10.2)(@types/react@19.0.7)(@vercel/postgres@0.9.0)(payload@3.31.0(bufferutil@4.0.9)(graphql@16.11.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(pg@8.11.3)(react@19.0.0)':
     dependencies:
       console-table-printer: 2.12.1
-      drizzle-orm: 0.36.1(@neondatabase/serverless@0.9.5)(@opentelemetry/api@1.9.0)(@types/pg@8.11.6)(@types/react@19.0.7)(@vercel/postgres@0.9.0)(pg@8.11.3)(react@19.0.0)
+      drizzle-orm: 0.36.1(@neondatabase/serverless@0.9.5)(@opentelemetry/api@1.9.0)(@types/pg@8.10.2)(@types/react@19.0.7)(@vercel/postgres@0.9.0)(pg@8.11.3)(react@19.0.0)
       payload: 3.31.0(bufferutil@4.0.9)(graphql@16.11.0)(typescript@5.7.3)(utf-8-validate@6.0.5)
       prompts: 2.4.2
       to-snake-case: 1.0.0
@@ -11595,7 +11649,13 @@ snapshots:
 
   '@types/pg-pool@2.0.6':
     dependencies:
-      '@types/pg': 8.6.1
+      '@types/pg': 8.11.6
+
+  '@types/pg@8.10.2':
+    dependencies:
+      '@types/node': 22.15.17
+      pg-protocol: 1.9.5
+      pg-types: 4.0.2
 
   '@types/pg@8.11.6':
     dependencies:
@@ -12687,11 +12747,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.36.1(@neondatabase/serverless@0.9.5)(@opentelemetry/api@1.9.0)(@types/pg@8.11.6)(@types/react@19.0.7)(@vercel/postgres@0.9.0)(pg@8.11.3)(react@19.0.0):
+  drizzle-orm@0.36.1(@neondatabase/serverless@0.9.5)(@opentelemetry/api@1.9.0)(@types/pg@8.10.2)(@types/react@19.0.7)(@vercel/postgres@0.9.0)(pg@8.11.3)(react@19.0.0):
     optionalDependencies:
       '@neondatabase/serverless': 0.9.5
       '@opentelemetry/api': 1.9.0
-      '@types/pg': 8.11.6
+      '@types/pg': 8.10.2
       '@types/react': 19.0.7
       '@vercel/postgres': 0.9.0
       pg: 8.11.3

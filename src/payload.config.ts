@@ -1,5 +1,4 @@
 import { vercelPostgresAdapter } from "@payloadcms/db-vercel-postgres";
-// import { postgresAdapter } from "@payloadcms/db-postgres";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
 import path from "node:path";
@@ -30,6 +29,7 @@ import { plugins } from "./plugins";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
+const sslCert = process.env.SUPABASE_CA_CERT;
 const catalog = [Collections, Products];
 
 // const isDevelopment = process.env.NODE_ENV === "development";
@@ -68,6 +68,10 @@ export default buildConfig({
   db: vercelPostgresAdapter({
     pool: {
       connectionString: process.env.POSTGRES_URL,
+      ssl: {
+        rejectUnauthorized: false,
+        ca: sslCert,
+      },
     },
   }),
   editor: lexicalEditor(),

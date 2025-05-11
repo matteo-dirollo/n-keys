@@ -63,3 +63,5 @@ collectiondocsObject.go
 dev.db
 
 products_extration.json
+
+supabaseSslCertificate.crt
