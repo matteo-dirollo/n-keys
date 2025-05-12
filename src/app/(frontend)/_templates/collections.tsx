@@ -17,6 +17,7 @@ export default function CollectionTemplate({
 }) {
   const pageNumber = page ? Number.parseInt(page) : 1;
   const sort = sortBy || "created_at";
+  const totalPages = Math.ceil(collection.products.length / 12);
 
   return (
     <div className="flex flex-col small:flex-row small:items-start py-6 content-container">
@@ -37,6 +38,7 @@ export default function CollectionTemplate({
             page={pageNumber}
             products={collection.products}
             sortBy={sort}
+            totalPages={totalPages}
           />
         </Suspense>
       </div>
