@@ -77,6 +77,7 @@ export default buildConfig({
   editor: lexicalEditor(),
   endpoints: [
     {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       handler: (req) => {
         return Response.json({ status: "OK" });
       },

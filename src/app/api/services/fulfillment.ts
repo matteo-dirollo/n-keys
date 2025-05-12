@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 export const listCartShippingMethods = (cartId: string) => {
-    return [];
+  return [];
 };
 
 export const calculatePriceForShippingOption = (
-    shippingOptionId: string,
-    cartId: string
+  shippingOptionId: string,
+  cartId: string
 ) => {
-    return {};
+  return {};
 };

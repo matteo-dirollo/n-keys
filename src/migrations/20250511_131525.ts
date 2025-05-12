@@ -1,4 +1,9 @@
-import { MigrateUpArgs, MigrateDownArgs, sql } from '@payloadcms/db-vercel-postgres'
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import {
+  MigrateUpArgs,
+  MigrateDownArgs,
+  sql,
+} from "@payloadcms/db-vercel-postgres";
 
 export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   await db.execute(sql`
@@ -879,10 +884,14 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE INDEX IF NOT EXISTS "footer_blocks_basic_footer_parent_id_idx" ON "footer_blocks_basic_footer" USING btree ("_parent_id");
   CREATE INDEX IF NOT EXISTS "footer_blocks_basic_footer_path_idx" ON "footer_blocks_basic_footer" USING btree ("_path");
   CREATE INDEX IF NOT EXISTS "cj_settings_items_order_idx" ON "cj_settings_items" USING btree ("_order");
-  CREATE INDEX IF NOT EXISTS "cj_settings_items_parent_id_idx" ON "cj_settings_items" USING btree ("_parent_id");`)
+  CREATE INDEX IF NOT EXISTS "cj_settings_items_parent_id_idx" ON "cj_settings_items" USING btree ("_parent_id");`);
 }
 
-export async function down({ db, payload, req }: MigrateDownArgs): Promise<void> {
+export async function down({
+  db,
+  payload,
+  req,
+}: MigrateDownArgs): Promise<void> {
   await db.execute(sql`
    DROP TABLE "orders_items" CASCADE;
   DROP TABLE "orders" CASCADE;
@@ -940,5 +949,5 @@ export async function down({ db, payload, req }: MigrateDownArgs): Promise<void>
   DROP TYPE "public"."enum_payload_jobs_log_task_slug";
   DROP TYPE "public"."enum_payload_jobs_log_state";
   DROP TYPE "public"."enum_payload_jobs_task_slug";
-  DROP TYPE "public"."enum_store_settings_currency";`)
+  DROP TYPE "public"."enum_store_settings_currency";`);
 }

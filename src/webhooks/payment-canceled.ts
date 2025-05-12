@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import type { StripeWebhookHandler } from "@shopnex/stripe-plugin/types";
 import type Stripe from "stripe";
 
