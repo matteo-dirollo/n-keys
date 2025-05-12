@@ -24,7 +24,7 @@ export const plugins: Plugin[] = [
   cjPlugin({
     cjApiKey: process.env.CJ_PASSWORD || "",
     cjEmailAddress: process.env.CJ_EMAIL_ADDRESS || "",
-    // cjRefreshToken: process.env.CJ_REFRESH_TOKEN,
+    cjRefreshToken: process.env.CJ_REFRESH_TOKEN,
   }),
   storePlugin({}),
   importExportPlugin({
