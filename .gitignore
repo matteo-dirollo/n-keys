@@ -64,4 +64,5 @@ dev.db
 
 products_extration.json
 
+prod-ca-2021.crt
 supabaseSslCertificate.crt

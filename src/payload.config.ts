@@ -1,6 +1,8 @@
 import { vercelPostgresAdapter } from "@payloadcms/db-vercel-postgres";
+// import { postgresAdapter } from "@payloadcms/db-postgres";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
+import { seoPlugin } from "@payloadcms/plugin-seo";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildConfig } from "payload";
@@ -26,6 +28,8 @@ import { Footer } from "./globals/Footer";
 import { HeroSection } from "./globals/HeroSection";
 import StoreSettings from "./globals/StoreSettings";
 import { plugins } from "./plugins";
+import { lexicalToPlainText } from "./utils/lexicalToPlainText";
+import { error } from "node:console";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -69,7 +73,7 @@ export default buildConfig({
     pool: {
       connectionString: process.env.POSTGRES_URL,
       ssl: {
-        rejectUnauthorized: false,
+        rejectUnauthorized: true,
         ca: sslCert,
       },
     },
@@ -87,8 +91,8 @@ export default buildConfig({
   ],
   globals: [StoreSettings, HeroSection, Footer],
   i18n: {
-    fallbackLanguage: "en", // Optional: Set the fallback language
-    supportedLanguages: { de, en, fr, it }, // Add supported languages here
+    fallbackLanguage: "en",
+    supportedLanguages: { de, en, fr, it },
   },
   onInit: async (payload) => {
     await createDefaultPolicies(payload);
@@ -98,11 +102,45 @@ export default buildConfig({
     vercelBlobStorage({
       collections: {
         media: {
-          prefix: "uploads/media/", // Prefix for media files
+          prefix: "uploads/media/",
         },
       },
-      enabled: true, // Enable the plugin
-      token: process.env.BLOB_READ_WRITE_TOKEN, // Vercel Blob token
+      enabled: true,
+      token: process.env.BLOB_READ_WRITE_TOKEN,
+    }),
+    seoPlugin({
+      collections: ["products", "collections"],
+      uploadsCollection: "media",
+      generateTitle: ({ doc }) => {
+        return `N-KEYS | ${doc.title}`;
+      },
+      generateDescription: ({ doc }) => {
+        const lexical = doc.description;
+        let plain = "";
+        if (lexical && lexical.root) {
+          plain = lexicalToPlainText(lexical.root).trim();
+        }
+        return plain.slice(0, 150);
+      },
+      generateImage: ({ doc }) => {
+        const seoImage = doc.variants.find(
+          (v: { imageUrl: any }) => v.imageUrl
+        )?.imageUrl;
+
+        console.log("SEO doc.variants:", doc.variants);
+        return seoImage;
+      },
+      generateURL: ({ doc, collectionSlug }) => {
+        return `https://n-keys.com/${collectionSlug}/${doc.handle}`;
+      },
+      tabbedUI: true,
+      fields: ({ defaultFields }) => [
+        ...defaultFields,
+        {
+          name: "canonicalURL",
+          type: "text",
+        },
+      ],
     }),
   ],
   secret:

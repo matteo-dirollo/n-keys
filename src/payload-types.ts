@@ -317,6 +317,15 @@ export interface Product {
         id?: string | null;
       }[]
     | null;
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+    canonicalURL?: string | null;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -348,6 +357,15 @@ export interface Collection {
     docs?: (number | Product)[];
     hasNextPage?: boolean;
     totalDocs?: number;
+  };
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+    canonicalURL?: string | null;
   };
   updatedAt: string;
   createdAt: string;
@@ -810,6 +828,14 @@ export interface CollectionsSelect<T extends boolean = true> {
   handle?: T;
   description?: T;
   products?: T;
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+        canonicalURL?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }
@@ -857,6 +883,14 @@ export interface ProductsSelect<T extends boolean = true> {
         name?: T;
         value?: T;
         id?: T;
+      };
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+        canonicalURL?: T;
       };
   updatedAt?: T;
   createdAt?: T;
