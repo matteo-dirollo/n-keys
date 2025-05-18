@@ -26,7 +26,6 @@
     "@medusajs/icons": "^2.5.1",
     "@medusajs/ui": "^4.0.6",
     "@medusajs/ui-preset": "^2.5.1",
-    "@payloadcms/db-postgres": "3.31.0",
     "@payloadcms/db-vercel-postgres": "3.31.0",
     "@payloadcms/next": "3.31.0",
     "@payloadcms/plugin-seo": "3.31.0",

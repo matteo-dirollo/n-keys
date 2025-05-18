@@ -1,8 +1,6 @@
 import { vercelPostgresAdapter } from "@payloadcms/db-vercel-postgres";
 // import { postgresAdapter } from "@payloadcms/db-postgres";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
-import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
-import { seoPlugin } from "@payloadcms/plugin-seo";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildConfig } from "payload";
@@ -28,8 +26,6 @@ import { Footer } from "./globals/Footer";
 import { HeroSection } from "./globals/HeroSection";
 import StoreSettings from "./globals/StoreSettings";
 import { plugins } from "./plugins";
-import { lexicalToPlainText } from "./utils/lexicalToPlainText";
-import { error } from "node:console";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -77,6 +73,7 @@ export default buildConfig({
         ca: sslCert,
       },
     },
+    // schemaName: "public",
   }),
   editor: lexicalEditor(),
   endpoints: [
@@ -97,52 +94,7 @@ export default buildConfig({
   onInit: async (payload) => {
     await createDefaultPolicies(payload);
   },
-  plugins: [
-    ...plugins,
-    vercelBlobStorage({
-      collections: {
-        media: {
-          prefix: "uploads/media/",
-        },
-      },
-      enabled: true,
-      token: process.env.BLOB_READ_WRITE_TOKEN,
-    }),
-    seoPlugin({
-      collections: ["products", "collections"],
-      uploadsCollection: "media",
-      generateTitle: ({ doc }) => {
-        return `N-KEYS | ${doc.title}`;
-      },
-      generateDescription: ({ doc }) => {
-        const lexical = doc.description;
-        let plain = "";
-        if (lexical && lexical.root) {
-          plain = lexicalToPlainText(lexical.root).trim();
-        }
-        return plain.slice(0, 150);
-      },
-      generateImage: ({ doc }) => {
-        const seoImage = doc.variants.find(
-          (v: { imageUrl: any }) => v.imageUrl
-        )?.imageUrl;
-
-        console.log("SEO doc.variants:", doc.variants);
-        return seoImage;
-      },
-      generateURL: ({ doc, collectionSlug }) => {
-        return `https://n-keys.com/${collectionSlug}/${doc.handle}`;
-      },
-      tabbedUI: true,
-      fields: ({ defaultFields }) => [
-        ...defaultFields,
-        {
-          name: "canonicalURL",
-          type: "text",
-        },
-      ],
-    }),
-  ],
+  plugins,
   secret:
     process.env.PAYLOAD_SECRET ||
     "9beff12a6b089174fb69dc5e94a3bf0a910026871a1b0b717079d43ed4afa267",
