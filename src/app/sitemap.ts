@@ -5,7 +5,7 @@ import { getServerSideURL } from "@/utils/getURL";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const payload = await getPayload({ config });
-  const posts = await payload.find({
+  const products = await payload.find({
     collection: "products",
     limit: 0,
     where: {},
@@ -14,14 +14,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const url = getServerSideURL();
 
   return [
-    ...posts.docs.map(({ handle, updatedAt }) => ({
-      url: `${url}/en/${handle}`,
+    ...products.docs.map(({ handle, updatedAt }) => ({
+      url: `${url}/products/${handle}`,
       lastModified: new Date(updatedAt),
-      alternates: {
-        languages: {
-          es: `${url}/es/${handle}`,
-        },
-      },
+      // alternates: {
+      //   languages: {
+      //     en: `${url}/products/${handle}/en`,
+      //   },
+      // },
     })),
   ];
 }

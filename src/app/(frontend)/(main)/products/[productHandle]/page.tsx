@@ -5,60 +5,89 @@ import { mapProducts } from "@/utils/map-products";
 import config from "@payload-config";
 import { notFound } from "next/navigation";
 import { getPayload } from "payload";
+import {
+  imageSchema,
+  productSchema,
+} from "@/app/(frontend)/_components/schema";
+import Script from "next/script";
 
 type ProductPageProps = {
-    params: Promise<{ productHandle: string }>;
+  params: Promise<{ productHandle: string }>;
 };
 
 export async function generateMetadata(
-    props: ProductPageProps
+  props: ProductPageProps
 ): Promise<Metadata> {
-    const params = await props.params;
-    const { productHandle } = params;
+  const params = await props.params;
+  const { productHandle } = params;
 
-    const product = {
-        handle: productHandle,
-        thumbnail:
-            "https://next.medusajs.com/_next/image?url=https%3A%2F%2Fmedusa-server-testing.s3.us-east-1.amazonaws.com%2Fheadphones-nobg-1700675136219.png&w=1920&q=50",
-        title: "Product 1",
-    };
+  const payload = await getPayload({ config });
+  const productRes = await payload.find({
+    collection: "products",
+    limit: 1,
+    where: {
+      handle: {
+        equals: productHandle,
+      },
+    },
+  });
 
-    if (!product) {
-        notFound();
-    }
+  const mappedProducts = mapProducts(productRes.docs);
+  const product = mappedProducts[0];
 
-    return {
-        description: `${product.title}`,
-        openGraph: {
-            description: `${product.title}`,
-            images: product.thumbnail ? [product.thumbnail] : [],
-            title: `${product.title} | Medusa Store`,
-        },
-        title: `${product.title} | Medusa Store`,
-    };
+  if (!product) {
+    notFound();
+  }
+
+  // Find the first variant with a valid imageUrl
+  const imageUrl = product.variants?.find(
+    (variant: any) =>
+      typeof variant.imageUrl === "string" && variant.imageUrl.length > 0
+  )?.imageUrl;
+
+  return {
+    description: `${product.title}`,
+    openGraph: {
+      description: `${product.title}`,
+      images: imageUrl ? [imageUrl] : [],
+      title: `${product.title} | N-KEYS`,
+    },
+    title: `${product.title} | N-KEYS`,
+  };
 }
-
 export default async function ProductPage(props: ProductPageProps) {
-    const params = await props.params;
+  const params = await props.params;
 
-    const payload = await getPayload({ config });
-    const product = await payload.find({
-        collection: "products",
-        limit: 1,
-        where: {
-            handle: {
-                equals: params.productHandle,
-            },
-        },
-    });
+  const payload = await getPayload({ config });
+  const product = await payload.find({
+    collection: "products",
+    limit: 1,
+    where: {
+      handle: {
+        equals: params.productHandle,
+      },
+    },
+  });
 
-    const mappedProducts = mapProducts(product.docs);
+  const mappedProducts = mapProducts(product.docs);
 
-    const pricedProduct = mappedProducts[0];
+  const pricedProduct = mappedProducts[0];
 
-    if (!pricedProduct) {
-        notFound();
-    }
+  if (!pricedProduct) {
+    notFound();
+  }
 
-    return <ProductTemplate product={pricedProduct} />;
+  const schema: any[] = [
+    imageSchema(pricedProduct),
+    productSchema(pricedProduct),
+  ];
+
+  return (
+    <>
+      <Script type={"application/ld+json"} strategy={"lazyOnload"}>
+        {JSON.stringify(schema)}
+      </Script>
+      <ProductTemplate product={pricedProduct} />
+    </>
+  );
 }

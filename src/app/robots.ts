@@ -11,7 +11,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: "/admin",
       },
       {
-        userAgent: ["AhrefsBot", "BingBot"],
+        userAgent: ["AhrefsBot", "BingBot", "SemrushBot"],
         disallow: ["/"],
       },
     ],
