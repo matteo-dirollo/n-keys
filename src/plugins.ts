@@ -36,7 +36,7 @@ export const plugins: Plugin[] = [
     collections: ["products", "collections"],
     uploadsCollection: "media",
     generateTitle: ({ doc }) => {
-      return `N-KEYS | ${doc.title}`;
+      return `${doc.title} | N-KEYS`;
     },
     generateDescription: ({ doc }) => {
       const lexical = doc.description;
