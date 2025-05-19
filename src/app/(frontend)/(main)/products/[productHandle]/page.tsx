@@ -87,6 +87,7 @@ export default async function ProductPage(props: ProductPageProps) {
       <Script type={"application/ld+json"} strategy={"lazyOnload"}>
         {JSON.stringify(schema)}
       </Script>
+
       <ProductTemplate product={pricedProduct} />
     </>
   );
