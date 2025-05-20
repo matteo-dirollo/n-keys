@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import Head from "next/head";
+import { GoogleAnalytics } from "./_components/analytics/GoogleAnalytics";
+import { GoogleTagManager } from "./_components/analytics/GoogleTagManager";
 import { PrivacyProvider } from "../(frontend)/_providers/privacy";
 
 import "./globals.css";
@@ -18,7 +21,11 @@ export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html data-mode="light" lang="en">
       <PrivacyProvider>
+        <Head>
+          <GoogleAnalytics />
+        </Head>
         <body>
+          <GoogleTagManager />
           <Providers>
             <main className="relative">{children}</main>
           </Providers>
