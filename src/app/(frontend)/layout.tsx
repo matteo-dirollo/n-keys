@@ -21,6 +21,16 @@ export default function RootLayout(props: { children: React.ReactNode }) {
     <html data-mode="light" lang="en">
       <PrivacyProvider>
         <head>
+          <link
+            href="https://api.github.com/repos/payloadcms/payload"
+            rel="dns-prefetch"
+          />
+          <link
+            href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"
+            rel="stylesheet"
+          />
+          <link href="https://www.googletagmanager.com" rel="preconnect" />
+          <link href="https://www.google-analytics.com" rel="preconnect" />
           <GoogleAnalytics />
         </head>
         <body>
