@@ -31,6 +31,7 @@ import { PreviewComponent as PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860 }
 import { default as default_f0f7b12584c89e13c6a87d8efa94a229 } from '@/collections/Products/fields/BuildVariantsButton'
 import { default as default_e49979b57f52dbb3fe02cec65aa4998b } from '@/collections/Products/fields/ImageCell'
 import { ApiToken as ApiToken_d63109af7e7e829a8cdb207ca8c3245a } from '@shopnex/stripe-plugin/client'
+import { ApiToken as ApiToken_4db7f57ea512297f27e20ca12ad3336a } from '@shopnex/utils/rsc'
 import { PluginEditView as PluginEditView_57ab7ef8acde5e865fd68d3a08a07070 } from '@shopnex/store-plugin/client'
 import { PluginListView as PluginListView_57ab7ef8acde5e865fd68d3a08a07070 } from '@shopnex/store-plugin/client'
 import { SortBy as SortBy_2cddc2e1d3f965d7263141af56b26a90 } from '@shopnex/import-export-plugin/rsc'
@@ -77,6 +78,7 @@ export const importMap = {
   "@/collections/Products/fields/BuildVariantsButton#default": default_f0f7b12584c89e13c6a87d8efa94a229,
   "@/collections/Products/fields/ImageCell#default": default_e49979b57f52dbb3fe02cec65aa4998b,
   "@shopnex/stripe-plugin/client#ApiToken": ApiToken_d63109af7e7e829a8cdb207ca8c3245a,
+  "@shopnex/utils/rsc#ApiToken": ApiToken_4db7f57ea512297f27e20ca12ad3336a,
   "@shopnex/store-plugin/client#PluginEditView": PluginEditView_57ab7ef8acde5e865fd68d3a08a07070,
   "@shopnex/store-plugin/client#PluginListView": PluginListView_57ab7ef8acde5e865fd68d3a08a07070,
   "@shopnex/import-export-plugin/rsc#SortBy": SortBy_2cddc2e1d3f965d7263141af56b26a90,
