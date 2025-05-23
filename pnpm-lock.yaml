@@ -9,25 +9,25 @@ importers:
   .:
     dependencies:
       '@builder.io/dev-tools':
-        specifier: ^1.6.29
+        specifier: ^1.6.45
         version: 1.6.45
       '@builder.io/react':
-        specifier: ^8.1.0
+        specifier: ^8.1.2
         version: 8.1.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@builder.io/sdk':
-        specifier: ^6.0.7
+        specifier: ^6.0.9
         version: 6.0.9
       '@headlessui/react':
-        specifier: ^2.2.0
+        specifier: ^2.2.2
         version: 2.2.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@medusajs/icons':
-        specifier: ^2.5.1
+        specifier: ^2.7.1
         version: 2.7.1(react@19.0.0)
       '@medusajs/ui':
-        specifier: ^4.0.6
+        specifier: ^4.0.9
         version: 4.0.9(@types/react-dom@19.0.3(@types/react@19.0.7))(@types/react@19.0.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
       '@medusajs/ui-preset':
-        specifier: ^2.5.1
+        specifier: ^2.7.1
         version: 2.7.1(tailwindcss@4.1.6)
       '@payloadcms/db-vercel-postgres':
         specifier: 3.31.0
@@ -51,13 +51,13 @@ importers:
         specifier: 3.31.0
         version: 3.31.0(@types/react@19.0.7)(monaco-editor@0.52.2)(next@15.2.4(@opentelemetry/api@1.9.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.31.0(bufferutil@4.0.9)(graphql@16.11.0)(typescript@5.7.3)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
       '@radix-ui/react-accordion':
-        specifier: ^1.2.3
+        specifier: ^1.2.10
         version: 1.2.10(@types/react-dom@19.0.3(@types/react@19.0.7))(@types/react@19.0.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@shopnex/cj-plugin':
         specifier: ^1.2.2
         version: 1.2.2(bufferutil@4.0.9)(utf-8-validate@6.0.5)
       '@shopnex/import-export-plugin':
-        specifier: ^3.31.3
+        specifier: ^3.31.6
         version: 3.31.6(@types/react@19.0.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@shopnex/store-plugin':
         specifier: 1.0.14
@@ -66,13 +66,13 @@ importers:
         specifier: 3.31.3
         version: 3.31.3
       '@tailwindcss/postcss':
-        specifier: ^4.0.9
+        specifier: ^4.1.6
         version: 4.1.6
       '@tailwindcss/typography':
         specifier: ^0.5.16
         version: 0.5.16(tailwindcss@4.1.6)
       axios:
-        specifier: ^1.8.2
+        specifier: ^1.9.0
         version: 1.9.0
       cheerio:
         specifier: ^1.0.0
@@ -90,10 +90,10 @@ importers:
         specifier: ^10.5.0
         version: 10.5.0
       graphql:
-        specifier: ^16.8.1
+        specifier: ^16.11.0
         version: 16.11.0
       jsdom:
-        specifier: ^26.0.0
+        specifier: ^26.1.0
         version: 26.1.0(bufferutil@4.0.9)(utf-8-validate@6.0.5)
       lodash:
         specifier: ^4.17.21
@@ -111,7 +111,7 @@ importers:
         specifier: ^8.16.0
         version: 8.16.0
       rate-limiter-flexible:
-        specifier: ^6.1.0
+        specifier: ^6.2.1
         version: 6.2.1
       react:
         specifier: 19.0.0
@@ -129,7 +129,7 @@ importers:
         specifier: ^1.14.0
         version: 1.14.0(react@19.0.0)
       recharts:
-        specifier: ^2.15.1
+        specifier: ^2.15.3
         version: 2.15.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       sharp:
         specifier: 0.32.6
@@ -141,7 +141,7 @@ importers:
         specifier: ^17.7.0
         version: 17.7.0
       tailwind-merge:
-        specifier: ^3.0.2
+        specifier: ^3.2.0
         version: 3.2.0
       tailwindcss-radix:
         specifier: ^4.0.2
@@ -151,7 +151,7 @@ importers:
         specifier: 1.9.4
         version: 1.9.4
       '@eslint/eslintrc':
-        specifier: ^3.2.0
+        specifier: ^3.3.1
         version: 3.3.1
       '@payloadcms/eslint-config':
         specifier: ^3.28.0
@@ -163,7 +163,7 @@ importers:
         specifier: ^4.17.16
         version: 4.17.16
       '@types/node':
-        specifier: ^22.5.4
+        specifier: ^22.15.17
         version: 22.15.17
       '@types/react':
         specifier: 19.0.7
@@ -172,10 +172,10 @@ importers:
         specifier: 19.0.3
         version: 19.0.3(@types/react@19.0.7)
       autoprefixer:
-        specifier: ^10.4.20
+        specifier: ^10.4.21
         version: 10.4.21(postcss@8.5.3)
       eslint:
-        specifier: ^9.16.0
+        specifier: ^9.26.0
         version: 9.26.0(jiti@2.4.2)
       eslint-config-next:
         specifier: 15.1.5
@@ -184,10 +184,10 @@ importers:
         specifier: ^8.5.3
         version: 8.5.3
       prettier:
-        specifier: ^3.4.2
+        specifier: ^3.5.3
         version: 3.5.3
       tailwindcss:
-        specifier: ^4.0.9
+        specifier: ^4.1.6
         version: 4.1.6
       typescript:
         specifier: 5.7.3
@@ -5670,8 +5670,8 @@ packages:
   lexical@0.28.0:
     resolution: {integrity: sha512-dLE3O1PZg0TlZxRQo9YDpjCjDUj8zluGyBO9MHdjo21qZmMUNrxQPeCRt8fn2s5l4HKYFQ1YNgl7k1pOJB/vZQ==}
 
-  lib0@0.2.107:
-    resolution: {integrity: sha512-2xih/AugT0dJSgeSfsW/bqIPILlsqzEtmw8hXzWEnMLrOz12DTK5z9rjNgUT21/HkBjHSznOQBr67bcZdc8Ltg==}
+  lib0@0.2.108:
+    resolution: {integrity: sha512-+3eK/B0SqYoZiQu9fNk4VEc6EX8cb0Li96tPGKgugzoGj/OdRdREtuTLvUW+mtinoB2mFiJjSqOJBIaMkAGhxQ==}
     engines: {node: '>=16'}
     hasBin: true
 
@@ -14322,7 +14322,7 @@ snapshots:
 
   lexical@0.28.0: {}
 
-  lib0@0.2.107:
+  lib0@0.2.108:
     dependencies:
       isomorphic.js: 0.2.5
 
@@ -16629,7 +16629,7 @@ snapshots:
 
   yjs@13.6.26:
     dependencies:
-      lib0: 0.2.107
+      lib0: 0.2.108
 
   yocto-queue@0.1.0: {}
 
