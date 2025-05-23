@@ -2,6 +2,7 @@
 import {
   Dialog,
   DialogTitle,
+  DialogPanel,
   Transition,
   TransitionChild,
 } from "@headlessui/react";
@@ -53,7 +54,7 @@ const Modal = ({
               }
             )}
           >
-            <Transition.Child
+            <TransitionChild
               as={Fragment}
               enter="ease-out duration-300"
               enterFrom="opacity-0 scale-95"
@@ -62,7 +63,7 @@ const Modal = ({
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel
+              <DialogPanel
                 className={clx(
                   "flex flex-col justify-start w-full transform p-5 text-left align-middle transition-all max-h-[75vh] h-fit",
                   {
@@ -76,8 +77,8 @@ const Modal = ({
                 data-testid={dataTestId}
               >
                 <ModalProvider close={close}>{children}</ModalProvider>
-              </Dialog.Panel>
-            </Transition.Child>
+              </DialogPanel>
+            </TransitionChild>
           </div>
         </div>
       </Dialog>
