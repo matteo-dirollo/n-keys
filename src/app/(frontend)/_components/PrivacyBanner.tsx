@@ -29,7 +29,9 @@ export const PrivacyBanner: React.FC = () => {
   return (
     <div
       className={[
-        "fixed z-[100] bottom-4 left-1/2 -translate-x-1/2 w-[95vw] max-w-full sm:right-6 sm:left-auto sm:translate-x-0 sm:w-max sm:max-w-[calc(theme(spacing.32)*8)] border border-border transition-transform duration-300 ease-out",
+        "fixed z-[100] bottom-4 left-1/2 -translate-x-1/2 w-[95vw] max-w-full",
+        "sm:w-max sm:max-w-2xl", // Centered and constrained on larger screens
+        "border border-border transition-transform duration-300 ease-out",
         animateOut ? "translate-y-full" : "",
       ]
         .filter(Boolean)
