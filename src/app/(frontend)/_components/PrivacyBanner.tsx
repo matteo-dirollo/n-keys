@@ -29,14 +29,14 @@ export const PrivacyBanner: React.FC = () => {
   return (
     <div
       className={[
-        "fixed bottom-4 right-6 z-[100] max-w-[calc(theme(spacing.32)*8)] w-max border border-border transition-transform duration-300 ease-out",
+        "fixed z-[100] bottom-4 left-1/2 -translate-x-1/2 w-[95vw] max-w-full sm:right-6 sm:left-auto sm:translate-x-0 sm:w-max sm:max-w-[calc(theme(spacing.32)*8)] border border-border transition-transform duration-300 ease-out",
         animateOut ? "translate-y-full" : "",
       ]
         .filter(Boolean)
         .join(" ")}
     >
-      <div className="flex flex-col justify-between items-center relative bg-black p-6">
-        <p className="m-0 text-base text-white">
+      <div className="flex flex-col justify-between items-center relative bg-black px-4 py-3 sm:p-6">
+        <p className="m-0 text-base text-white text-left">
           We use cookies, subject to your consent, to analyze the use of our
           website and to ensure you get the best experience. Third parties with
           whom we collaborate can also install cookies in order to show you
@@ -50,9 +50,9 @@ export const PrivacyBanner: React.FC = () => {
           </Link>{" "}
           for more information.
         </p>
-        <div className="flex gap-4 mt-6 w-full">
+        <div className="flex flex-col gap-3 mt-6 w-full sm:flex-row sm:gap-4">
           <button
-            className="w-1/2 py-2 px-4 rounded border text-white border-white hover:border-gray-200 transition"
+            className="w-full sm:w-1/2 py-2 px-4 rounded border text-white border-white hover:border-gray-200 transition"
             onClick={() => {
               updateCookieConsent(false);
               handleCloseBanner();
@@ -61,7 +61,7 @@ export const PrivacyBanner: React.FC = () => {
             Dismiss
           </button>
           <button
-            className="w-1/2 py-2 px-4 rounded bg-white border border-white text-black hover:bg-gray-300 hover:border-gray-300 transition"
+            className="w-full sm:w-1/2 py-2 px-4 rounded bg-white border border-white text-black hover:bg-gray-300 hover:border-gray-300 transition"
             onClick={() => {
               updateCookieConsent(true);
               handleCloseBanner();

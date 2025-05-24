@@ -8,6 +8,7 @@ import "./globals.css";
 import type React from "react";
 
 import { Providers } from "./_providers/providers";
+import { PrivacyBanner } from "./_components/PrivacyBanner";
 
 export const metadata: Metadata = {
   description: "A blank template using Payload in a Next.js app.",
@@ -37,6 +38,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
           <GoogleTagManager />
           <Providers>
             <main className="relative">{children}</main>
+            <PrivacyBanner />
           </Providers>
         </body>
       </PrivacyProvider>
